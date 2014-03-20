@@ -11,16 +11,18 @@ import android.widget.ArrayAdapter;
  * Created by grosalex on 20/03/14.
  */
 public class DetailedFragment extends Fragment {
-    String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
+    Group currentGroup;
+    String[] userList = new String[] {"usr1","usr2","usr3","usr4","usr5"};
 
-    public DetailedFragment() {
+    public DetailedFragment(Group currentGroup) {
+        this.currentGroup=currentGroup;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                inflater.getContext(), android.R.layout.simple_list_item_1,grpList);
+                inflater.getContext(), android.R.layout.user_item,grpList);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
