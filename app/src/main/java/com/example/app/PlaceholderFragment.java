@@ -1,5 +1,7 @@
 package com.example.app;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,7 +42,8 @@ public class PlaceholderFragment extends ListFragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
         setListAdapter(adapter);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_main,container,false);
+        return view;
     }
     public Group findByName(String name) {
         for (int i = 0; i < groupCollection.size(); i++) {
@@ -54,11 +57,16 @@ public class PlaceholderFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         Group item = (Group) getListAdapter().getItem(position);
-        Toast.makeText(getActivity(), item.getName() + " selected", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), item.getName() + " selected", Toast.LENGTH_SHORT).show();
         Group result = this.findByName(item.getName());
-        getFragmentManager().beginTransaction().replace(R.id.container, new DetailedFragment(result));
-        getFragmentManager().beginTransaction().commit();
+        //getFragmentManager().beginTransaction().replace(R.id.container, new DetailedFragment(result));
+        //getFragmentManager().beginTransaction().commit();
 
+        DetailedFragment d = new DetailedFragment(result);
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.container,d);
+        ft.commit();
     }
 
     public void addGroup(View view) {

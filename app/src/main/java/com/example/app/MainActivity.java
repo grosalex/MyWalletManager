@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,15 +28,15 @@ import java.util.List;
 import static com.example.app.PlaceholderFragment.*;
 
 public class MainActivity extends Activity {
-    PlaceholderFragment list = new PlaceholderFragment();
+    PlaceholderFragment grplist = new PlaceholderFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         FragmentManager fm = getFragmentManager();
-
-        if (fm.findFragmentById(android.R.id.content) == null) {
-
-            fm.beginTransaction().add(android.R.id.content, list).commit();
-        }
+        PlaceholderFragment pf = new PlaceholderFragment();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.container,pf);
+        ft.commit();
     }
 }

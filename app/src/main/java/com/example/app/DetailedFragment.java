@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 /**
  * Created by grosalex on 20/03/14.
@@ -22,9 +23,12 @@ public class DetailedFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Toast.makeText(getActivity(), "In Detailed Fragment", Toast.LENGTH_SHORT).show();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 inflater.getContext(), R.layout.user_item,R.id.textView,userList);
         setListAdapter(adapter);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_detail,null);
+        return view;
     }
 }
