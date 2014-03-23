@@ -32,8 +32,8 @@ public class PlaceholderFragment extends ListFragment {
     }
     public Group findByName(String name) {
         for (int i = 0; i < groupCollection.size(); i++) {
-            if (groupCollection[i].getName() == name) {
-                return groupCollection[i];
+            if (this.groupCollection[i].getName() == name) {
+                return this.groupCollection[i];
             }
         }
         return null;
