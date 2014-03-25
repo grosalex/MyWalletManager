@@ -32,10 +32,10 @@ public class PlaceholderFragment extends ListFragment {
     public PlaceholderFragment() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         groupCollection.add(grp1);
         groupCollection.add(grp3);
         groupCollection.add(grp2);
@@ -69,6 +69,9 @@ public class PlaceholderFragment extends ListFragment {
         ft.replace(R.id.container,d);
         ft.addToBackStack(null);
         ft.commit();
+    }
+    public void pushGroup(Group newGroup){
+        this.groupCollection.add(newGroup);
     }
 
 
