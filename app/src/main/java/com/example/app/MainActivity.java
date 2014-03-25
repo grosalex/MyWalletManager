@@ -41,15 +41,20 @@ public class MainActivity extends Activity {
     }
 
     public void newUser(View view) {
-        Toast.makeText(this, "new user", Toast.LENGTH_SHORT).show();
+        AddUserFragment userFragment = new AddUserFragment();
+        userFragment.show(getFragmentManager(),"showUserForm");
+
     }
-    public void addGroup(View view) {
+    public void newGroup(View view) {
         //Toast.makeText(this, "new group", Toast.LENGTH_SHORT).show();
         AddGroupFragment addGroupFragment = new AddGroupFragment();
         addGroupFragment.show(getFragmentManager(),"showGroupForm");
     }
 
     public void createGroup(View view) {
-        
+
+    }
+
+    public void createUser(View view) {
     }
 }
