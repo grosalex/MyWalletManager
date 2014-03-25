@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Ajouter un groupe"
-        android:onClick="addGroup"
+        android:onClick="newGroup"
         android:id="@+id/buttonAddGroup" />
 
     <ListView
