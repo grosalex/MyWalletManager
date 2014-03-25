@@ -65,10 +65,11 @@ public class PlaceholderFragment extends ListFragment {
         DetailedFragment d = new DetailedFragment(result);
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+
         ft.replace(R.id.container,d);
+        ft.addToBackStack(null);
         ft.commit();
     }
 
-    public void addGroup(View view) {
-    }
+
 }

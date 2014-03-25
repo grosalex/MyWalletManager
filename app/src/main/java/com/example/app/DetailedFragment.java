@@ -38,13 +38,5 @@ public class DetailedFragment extends ListFragment {
         return view;
     }
 
-    public void newUser(View view) {
-    }
 
-    public void backToGroup(View view) {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft=fm.beginTransaction();
-        ft.replace(R.id.container,new PlaceholderFragment());
-        ft.commit();
-    }
 }
