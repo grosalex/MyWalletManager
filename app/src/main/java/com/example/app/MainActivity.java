@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -28,7 +29,6 @@ import java.util.List;
 import static com.example.app.PlaceholderFragment.*;
 
 public class MainActivity extends Activity {
-    PlaceholderFragment grplist = new PlaceholderFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         FragmentManager fm = getFragmentManager();
         PlaceholderFragment pf = new PlaceholderFragment();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.container,pf);
+        ft.add(R.id.container,pf,"fragmentListGroup");
         ft.commit();
     }
 
@@ -52,7 +52,16 @@ public class MainActivity extends Activity {
     }
 
     public void createGroup(View view) {
-
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        PlaceholderFragment current_frag = (PlaceholderFragment)fm.findFragmentByTag("fragmentListGroup");
+        AddGroupFragment current_add_group_frag = (AddGroupFragment)fm.findFragmentByTag("showGroupForm");
+        EditText current_edit_text = (EditText)current_add_group_frag.getView().findViewById(R.id.groupNameText);
+        Group new_group = new Group(current_edit_text.getText().toString());
+        //Group new_group = new Group("Test");
+        Toast.makeText(this, new_group.getName(), Toast.LENGTH_SHORT).show();
+        current_frag.pushGroup(new_group);
+        ft.remove(current_add_group_frag).commit();
     }
 
     public void createUser(View view) {
