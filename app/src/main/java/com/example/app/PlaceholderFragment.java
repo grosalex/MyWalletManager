@@ -24,7 +24,7 @@ public class PlaceholderFragment extends ListFragment {
     Group grp1 = new Group("grp1");
     Group grp2 = new Group("grp2");
     Group grp3 = new Group("grp3");
-
+    GroupAdapter adapter;
 
     //Doing string array for example...
     //String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
@@ -36,12 +36,13 @@ public class PlaceholderFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*
         groupCollection.add(grp1);
         groupCollection.add(grp3);
         groupCollection.add(grp2);
-        GroupAdapter adapter = new GroupAdapter(
-                inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
-        setListAdapter(adapter);
+        */
+        this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,groupCollection);
+        setListAdapter(this.adapter);
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         return view;
     }
@@ -72,6 +73,7 @@ public class PlaceholderFragment extends ListFragment {
     }
     public void pushGroup(Group newGroup){
         this.groupCollection.add(newGroup);
+        this.adapter.notifyDataSetChanged();
     }
 
 
