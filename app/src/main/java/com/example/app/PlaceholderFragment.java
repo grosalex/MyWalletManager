@@ -39,7 +39,7 @@ public class PlaceholderFragment extends ListFragment {
         groupCollection.add(grp1);
         groupCollection.add(grp3);
         groupCollection.add(grp2);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        GroupAdapter adapter = new GroupAdapter(
                 inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
         setListAdapter(adapter);
         View view = inflater.inflate(R.layout.fragment_main,container,false);

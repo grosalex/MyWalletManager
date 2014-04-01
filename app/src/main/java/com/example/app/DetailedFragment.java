@@ -31,8 +31,8 @@ public class DetailedFragment extends ListFragment {
                              Bundle savedInstanceState) {
         Toast.makeText(getActivity(), "In Detailed Fragment", Toast.LENGTH_SHORT).show();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                inflater.getContext(), R.layout.user_item,R.id.textView,userList);
+        UserAdapter adapter = new UserAdapter(
+                inflater.getContext(), R.layout.user_item,R.id.textView,theUserList);
         setListAdapter(adapter);
         View view = inflater.inflate(R.layout.fragment_detail,null);
         return view;
