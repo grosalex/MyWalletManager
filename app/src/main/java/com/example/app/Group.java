@@ -1,5 +1,6 @@
 package com.example.app;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -7,7 +8,10 @@ import java.util.List;
  */
 public class Group {
     private String name;
-    private List <User> userCollection;
+
+
+
+    private List <User> userCollection=new LinkedList<User>();
     public Group(String inName){
         this.name = inName;
     }
@@ -24,5 +28,10 @@ public class Group {
     public String getName() {
         return name;
     }
-
+    public void addUser(User user){
+        this.userCollection.add(user);
+    }
+    public List<User> getUserCollection() {
+        return userCollection;
+    }
 }

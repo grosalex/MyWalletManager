@@ -25,6 +25,9 @@ public class DetailedFragment extends ListFragment {
 
     public DetailedFragment(Group currentGroup) {
         this.currentGroup=currentGroup;
+        if(this.currentGroup.getUserCollection()!=null) {
+            this.theUserList = this.currentGroup.getUserCollection();
+        }
     }
 
     @Override
@@ -41,6 +44,7 @@ public class DetailedFragment extends ListFragment {
     public void pushUser(User newUser){
         this.theUserList.add(newUser);
         this.adapter.notifyDataSetChanged();
+        this.currentGroup.addUser(newUser);
     }
 
 
