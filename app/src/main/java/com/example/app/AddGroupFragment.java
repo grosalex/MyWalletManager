@@ -31,7 +31,6 @@ public class AddGroupFragment extends DialogFragment {
                 PlaceholderFragment current_frag = (PlaceholderFragment)fm.findFragmentByTag("fragmentListGroup");
                 EditText nom = (EditText) getDialog().findViewById(R.id.groupNameText);
                 Group current_group = new Group(nom.getText().toString());
-                Toast.makeText(getActivity(), current_group.getName(), Toast.LENGTH_SHORT).show();
                 current_frag.pushGroup(current_group);
                 dialog.dismiss();
             }

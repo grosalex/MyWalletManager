@@ -21,10 +21,7 @@ import java.util.List;
  */
 public class PlaceholderFragment extends ListFragment {
     private List<Group> groupCollection = new LinkedList<Group>();
-    Group grp1 = new Group("grp1");
-    Group grp2 = new Group("grp2");
-    Group grp3 = new Group("grp3");
-    ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> adapter;
 
     //Doing string array for example...
     //String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
@@ -36,11 +33,6 @@ public class PlaceholderFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        /*
-        groupCollection.add(grp1);
-        groupCollection.add(grp3);
-        groupCollection.add(grp2);
-        */
         this.adapter = new ArrayAdapter<String>(
                 inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
         setListAdapter(this.adapter);
@@ -68,7 +60,7 @@ public class PlaceholderFragment extends ListFragment {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        ft.replace(R.id.container,d);
+        ft.replace(R.id.container,d,"fragmentGroupDetail");
         ft.addToBackStack(null);
         ft.commit();
     }

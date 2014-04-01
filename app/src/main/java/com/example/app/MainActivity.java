@@ -47,27 +47,8 @@ public class MainActivity extends Activity {
 
     }
     public void newGroup(View view) {
-        //Toast.makeText(this, "new group", Toast.LENGTH_SHORT).show();
         AddGroupFragment addGroupFragment = new AddGroupFragment();
         addGroupFragment.show(getFragmentManager(),"showGroupForm");
     }
 
-    /**
-    public void createGroup(View view) {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        PlaceholderFragment current_frag = (PlaceholderFragment)fm.findFragmentByTag("fragmentListGroup");
-        //AddGroupFragment current_add_group_frag = (AddGroupFragment)fm.findFragmentByTag("showGroupForm");
-
-        //EditText current_edit_text = (EditText)current_add_group_frag.getView().findViewById(R.id.groupNameText);
-
-        Group new_group = new Group(current_edit_text.getText().toString());
-        //Group new_group = new Group("Test");
-        Toast.makeText(this, new_group.getName(), Toast.LENGTH_SHORT).show();
-        current_frag.pushGroup(new_group);
-        //ft.remove(current_add_group_frag).commit();
-    }
-    */
-    public void createUser(View view) {
-    }
 }
