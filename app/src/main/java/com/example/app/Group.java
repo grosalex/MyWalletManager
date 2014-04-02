@@ -21,6 +21,11 @@ public class Group {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public String getName() {
         return name;
     }
