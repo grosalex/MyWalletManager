@@ -21,7 +21,14 @@ import java.util.List;
  */
 public class PlaceholderFragment extends ListFragment {
     private List<Group> groupCollection = new LinkedList<Group>();
+<<<<<<< HEAD
     private ArrayAdapter<String> adapter;
+=======
+    Group grp1 = new Group("grp1");
+    Group grp2 = new Group("grp2");
+    Group grp3 = new Group("grp3");
+    GroupAdapter adapter;
+>>>>>>> b28afab73f0ba7579bc90b9075426320ee0b8b99
 
     //Doing string array for example...
     //String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
@@ -33,8 +40,17 @@ public class PlaceholderFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+<<<<<<< HEAD
         this.adapter = new ArrayAdapter<String>(
                 inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
+=======
+        /*
+        groupCollection.add(grp1);
+        groupCollection.add(grp3);
+        groupCollection.add(grp2);
+        */
+        this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,groupCollection);
+>>>>>>> b28afab73f0ba7579bc90b9075426320ee0b8b99
         setListAdapter(this.adapter);
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         return view;
