@@ -33,7 +33,6 @@ public class PlaceholderFragment extends ListFragment {
     public PlaceholderFragment() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class PlaceholderFragment extends ListFragment {
         groupCollection.add(grp3);
         groupCollection.add(grp2);
 
-        this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
+        adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
         setListAdapter(adapter);
 
         View view = inflater.inflate(R.layout.fragment_main,container,false);
