@@ -26,14 +26,8 @@ import java.util.List;
  */
 public class PlaceholderFragment extends ListFragment {
     private List<Group> groupCollection = new LinkedList<Group>();
-    Group grp1 = new Group("grp1");
-    Group grp2 = new Group("grp2");
-    Group grp3 = new Group("grp3");
+
     private ArrayAdapter<Group> adapter ;
-
-
-    //Doing string array for example...
-    //String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
 
     public PlaceholderFragment() {
     }
@@ -51,9 +45,6 @@ public class PlaceholderFragment extends ListFragment {
         ActionBar ab = getActivity().getActionBar();
         ColorDrawable color = new ColorDrawable(Color.parseColor("#0e207f"));
         ab.setBackgroundDrawable(color);
-        groupCollection.add(grp1);
-        groupCollection.add(grp3);
-        groupCollection.add(grp2);
 
         adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
         setListAdapter(adapter);
@@ -75,10 +66,7 @@ public class PlaceholderFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         Group item = adapter.getItem(position);
-        //Toast.makeText(getActivity(), item.getName() + " selected", Toast.LENGTH_SHORT).show();
         Group result = findByName(item.getName());
-        //getFragmentManager().beginTransaction().replace(R.id.container, new DetailedFragment(result));
-        //getFragmentManager().beginTransaction().commit();
 
         DetailedFragment d = new DetailedFragment(result);
         FragmentManager fm = getFragmentManager();
