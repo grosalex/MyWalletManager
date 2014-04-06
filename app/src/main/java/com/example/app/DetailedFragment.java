@@ -38,7 +38,9 @@ public class DetailedFragment extends ListFragment {
         return view;
     }
     public void pushUser(User newUser){
-        adapter.add(newUser);
+        this.currentGroup.addUser(newUser);
+        this.adapter.notifyDataSetChanged();
+        //adapter.add(newUser);
     }
     public void onListItemClick(ListView l, View v, int position, long id) {
         User item = (User) getListAdapter().getItem(position);
