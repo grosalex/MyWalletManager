@@ -26,9 +26,11 @@ public class AddDetteFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         builder.setTitle("Ajouter une dette");
         builder.setView(inflater.inflate(R.layout.create_dette,null));
+
         Spinner mySpinner = (Spinner) getDialog().findViewById(R.id.spinnerUser);
-        ArrayAdapter<User> adapter = new ArrayAdapter<User>(inflater.getContext(),R.layout.group_item,R.id.textView,this.current_group.getUserCollection());
+        ArrayAdapter<User> adapter = new ArrayAdapter<User>(inflater.getContext(),R.layout.user_item,R.id.textView,this.current_group.getUserCollection());
         mySpinner.setAdapter(adapter);
+
         builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
