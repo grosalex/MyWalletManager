@@ -1,11 +1,16 @@
 package com.example.app;
 
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -21,14 +26,9 @@ import java.util.List;
  */
 public class PlaceholderFragment extends ListFragment {
     private List<Group> groupCollection = new LinkedList<Group>();
-//    private ArrayAdapter<String> adapter;
-/*    Group grp1 = new Group("grp1");
+    Group grp1 = new Group("grp1");
     Group grp2 = new Group("grp2");
     Group grp3 = new Group("grp3");
-
-*/
-   // GroupAdapter adapter;
-
     private ArrayAdapter<Group> adapter ;
 
 
@@ -39,28 +39,23 @@ public class PlaceholderFragment extends ListFragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.actionbar_group,menu);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-   //     this.adapter = new ArrayAdapter<String>(
-//                inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
-        /*
-        groupCollection.add(grp1);
-        groupCollection.add(grp3);
-        groupCollection.add(grp2);
-        */
-      //  this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,groupCollection);
-
-        setListAdapter(this.adapter);
-/*
+        setHasOptionsMenu(true);
+        ActionBar ab = getActivity().getActionBar();
+        ColorDrawable color = new ColorDrawable(Color.parseColor("#0e207f"));
+        ab.setBackgroundDrawable(color);
         groupCollection.add(grp1);
         groupCollection.add(grp3);
         groupCollection.add(grp2);
 
-<<<<<<< HEAD
-*/
- //       this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
-        this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
+        adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
         setListAdapter(adapter);
 
         View view = inflater.inflate(R.layout.fragment_main,container,false);
@@ -95,10 +90,18 @@ public class PlaceholderFragment extends ListFragment {
     }
     public void pushGroup(Group newGroup){
         this.groupCollection.add(newGroup);
-        adapter.add(newGroup);
         this.adapter.notifyDataSetChanged();
-
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.addgroup:
+                AddGroupFragment addGroupFragment = new AddGroupFragment();
+                addGroupFragment.show(getFragmentManager(),"showGroupForm");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
