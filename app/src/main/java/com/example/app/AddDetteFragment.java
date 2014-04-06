@@ -28,8 +28,7 @@ public class AddDetteFragment extends DialogFragment {
         builder.setView(inflater.inflate(R.layout.create_dette,null));
 
         Spinner mySpinner = (Spinner)inflater.inflate(R.layout.create_dette,null).findViewById(R.id.spinnerUser);
-        ArrayAdapter<User> adapter = new ArrayAdapter<User>(inflater.getContext(),R.layout.user_item,R.id.textView,this.current_group.getUserCollection());
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<User> adapter = new ArrayAdapter<User>(inflater.getContext(),android.R.layout.simple_spinner_item,android.R.layout.simple_spinner_dropdown_item,this.current_group.getUserCollection());
         mySpinner.setAdapter(adapter);
 
         builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
