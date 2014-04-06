@@ -21,14 +21,16 @@ import java.util.List;
  */
 public class PlaceholderFragment extends ListFragment {
     private List<Group> groupCollection = new LinkedList<Group>();
-<<<<<<< HEAD
-    private ArrayAdapter<String> adapter;
-=======
-    Group grp1 = new Group("grp1");
+//    private ArrayAdapter<String> adapter;
+/*    Group grp1 = new Group("grp1");
     Group grp2 = new Group("grp2");
     Group grp3 = new Group("grp3");
+
+*/
     GroupAdapter adapter;
->>>>>>> b28afab73f0ba7579bc90b9075426320ee0b8b99
+
+ //   private ArrayAdapter<Group> adapter ;
+
 
     //Doing string array for example...
     //String[] grpList = new String[] {"grp1","grp2","grp3","grp4","grp5"};
@@ -40,21 +42,30 @@ public class PlaceholderFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-<<<<<<< HEAD
-        this.adapter = new ArrayAdapter<String>(
-                inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
-=======
+
+   //     this.adapter = new ArrayAdapter<String>(
+//                inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
         /*
         groupCollection.add(grp1);
         groupCollection.add(grp3);
         groupCollection.add(grp2);
         */
-        this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,groupCollection);
->>>>>>> b28afab73f0ba7579bc90b9075426320ee0b8b99
+        this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
+
         setListAdapter(this.adapter);
+/*
+        groupCollection.add(grp1);
+        groupCollection.add(grp3);
+        groupCollection.add(grp2);
+
+*/
+ //       this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
+
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         return view;
     }
+
+
     public Group findByName(String name) {
         for (int i = 0; i < groupCollection.size(); i++) {
             if (groupCollection.get(i).getName() == name) {
@@ -66,9 +77,9 @@ public class PlaceholderFragment extends ListFragment {
 
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-        Group item = (Group) getListAdapter().getItem(position);
-        Toast.makeText(getActivity(), item.getName() + " selected", Toast.LENGTH_SHORT).show();
-        Group result = this.findByName(item.getName());
+        Group item = adapter.getItem(position);
+        //Toast.makeText(getActivity(), item.getName() + " selected", Toast.LENGTH_SHORT).show();
+        Group result = findByName(item.getName());
         //getFragmentManager().beginTransaction().replace(R.id.container, new DetailedFragment(result));
         //getFragmentManager().beginTransaction().commit();
 
@@ -82,7 +93,9 @@ public class PlaceholderFragment extends ListFragment {
     }
     public void pushGroup(Group newGroup){
         this.groupCollection.add(newGroup);
+        adapter.add(newGroup);
         this.adapter.notifyDataSetChanged();
+
     }
 
 

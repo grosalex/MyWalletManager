@@ -16,22 +16,37 @@ import java.util.List;
 /**
  * Created by William on 01/04/2014.
  */
-public class GroupAdapter extends ArrayAdapter<String> {
+public class GroupAdapter extends ArrayAdapter<Group> {
     private List<Group> groupCollection;
-    private Context ctx;
-    public GroupAdapter(Context context, int resource, int textViewResourceId, List objects) {
-        super(context, resource, textViewResourceId, objects);
-        this.groupCollection = objects;
-        this.ctx = context;
+    private final LayoutInflater mInflater;
+    public GroupAdapter(Context context) {
+        super(context, R.layout.group_item);
+        //this.groupCollection = objects;
+        mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public void setData(List<Group> data) {
+        clear();
+        if(data!=null){
+            for(Group grp : data) {
+                add(grp);
+            }
+        }
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.group_item, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.textView);
-        textView.setText(groupCollection.get(position).getName());
-        return rowView;
+        View v = convertView;
+        if (convertView == null) {
+            v = mInflater.inflate(R.layout.group_item,parent,false);
+        } else {
+            v = convertView;
+        }
+
+        Group item = getItem(position);
+        TextView textView = (TextView) v.findViewById(R.id.textView);
+        textView.setText(item.getName());
+        return v;
     }
 
 }

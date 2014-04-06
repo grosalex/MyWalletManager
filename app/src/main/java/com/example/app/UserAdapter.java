@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by William on 01/04/2014.
  */
-public class UserAdapter extends ArrayAdapter <String> {
+public class UserAdapter extends ArrayAdapter <Group> {
     private List<User> userCollection;
     private Context ctx;
 
