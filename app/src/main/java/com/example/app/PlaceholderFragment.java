@@ -27,9 +27,9 @@ public class PlaceholderFragment extends ListFragment {
     Group grp3 = new Group("grp3");
 
 */
-    GroupAdapter adapter;
+   // GroupAdapter adapter;
 
- //   private ArrayAdapter<Group> adapter ;
+    private ArrayAdapter<Group> adapter ;
 
 
     //Doing string array for example...
@@ -37,7 +37,6 @@ public class PlaceholderFragment extends ListFragment {
 
     public PlaceholderFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,7 +49,7 @@ public class PlaceholderFragment extends ListFragment {
         groupCollection.add(grp3);
         groupCollection.add(grp2);
         */
-        this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,(List)groupCollection);
+      //  this.adapter = new GroupAdapter(inflater.getContext(), R.layout.group_item,R.id.textView,groupCollection);
 
         setListAdapter(this.adapter);
 /*
@@ -58,8 +57,11 @@ public class PlaceholderFragment extends ListFragment {
         groupCollection.add(grp3);
         groupCollection.add(grp2);
 
+<<<<<<< HEAD
 */
  //       this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
+        this.adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
+        setListAdapter(adapter);
 
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         return view;
