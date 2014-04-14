@@ -43,7 +43,7 @@ public class DetailedFragment extends ListFragment {
         //adapter.add(newUser);
     }
     public void onListItemClick(ListView l, View v, int position, long id) {
-        User item = (User) getListAdapter().getItem(position);
+        User item = adapter.getItem(position);
         AddDetteFragment addDetteFragment = new AddDetteFragment(item, this.currentGroup);
         addDetteFragment.show(getFragmentManager(),"addDetteFrag");
 
