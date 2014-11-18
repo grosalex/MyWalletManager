@@ -41,11 +41,6 @@ public class PlaceholderFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        setHasOptionsMenu(true);
-        ActionBar ab = getActivity().getActionBar();
-        ColorDrawable color = new ColorDrawable(Color.parseColor("#0e207f"));
-        ab.setBackgroundDrawable(color);
-
         adapter = new ArrayAdapter<Group>(inflater.getContext(),R.layout.group_item, R.id.textView,groupCollection);
         setListAdapter(adapter);
 

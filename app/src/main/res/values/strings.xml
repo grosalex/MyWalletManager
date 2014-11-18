@@ -7,4 +7,6 @@
     <string name="groupForm">showGroupForm</string>
     <string name="groupList">fragmentListGroup</string>
     <string name="groupDetail">fragmentGroupDetail</string>
+
+    <color name="actionBar">#0e207f</color>
 </resources>

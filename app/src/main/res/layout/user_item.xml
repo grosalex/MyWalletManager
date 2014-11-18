@@ -9,5 +9,8 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:onClick="userDetail"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView" />
+
+ />
 </LinearLayout>

@@ -10,6 +10,9 @@
         android:text="New Text"
         android:onClick="groupDetail"
         android:id="@+id/textView"
-        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         />
 </LinearLayout>

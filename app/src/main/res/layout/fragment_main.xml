@@ -16,7 +16,6 @@
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:divider="@android:color/black"
-        android:dividerHeight="1.0sp"
-         />
+        android:divider="#0e207f"
+        android:dividerHeight="3dp"/>
 </LinearLayout>
